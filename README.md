@@ -1,11 +1,11 @@
-# RubyGit
+# track_open_instances gem
 
 [![Gem Version](https://badge.fury.io/rb/track_open_instances.svg)](https://badge.fury.io/rb/track_open_instances)
 [![Build Status](https://github.com/main-branch/track_open_instances/actions/workflows/continuous_integration.yml/badge.svg)](https://github.com/main-branch/track_open_instances/actions/workflows/continuous_integration.yml)
 [![Documentation](https://img.shields.io/badge/Documentation-Latest-green)](https://rubydoc.info/gems/track_open_instances/)
 [![Change Log](https://img.shields.io/badge/CHANGELOG-Latest-green)](https://rubydoc.info/gems/track_open_instances/file/CHANGELOG.md)
-[![Maintainability](https://api.codeclimate.com/v1/badges/5403e4613b7518f70da7/maintainability)](https://codeclimate.com/github/main-branch/track_open_instances/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/5403e4613b7518f70da7/test_coverage)](https://codeclimate.com/github/main-branch/track_open_instances/test_coverage)
+[![Maintainability](https://qlty.sh/badges/52f7402e-ab92-4f8f-9f62-d879ca628adb/maintainability.svg)](https://qlty.sh/gh/main-branch/projects/track_open_instances)
+[![Code Coverage](https://qlty.sh/badges/52f7402e-ab92-4f8f-9f62-d879ca628adb/test_coverage.svg)](https://qlty.sh/gh/main-branch/projects/track_open_instances)
 [![Slack](https://img.shields.io/badge/slack-main--branch/track__open__instances-yellow.svg?logo=slack)](https://main-branch.slack.com/archives/C01CHR7TMM2)
 
 `TrackOpenInstances` is a Ruby mixin designed to help manage resources that require
