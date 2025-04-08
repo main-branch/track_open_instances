@@ -68,11 +68,11 @@ jobs:
           ruby-version: 3.1
           bundler-cache: true
 
+      - name: Run test suite
+        run: bundle exec rake spec
+
       - name: Report test coverage
         uses: qltysh/qlty-action/coverage@main
         with:
           coverage-token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: coverage/.resultset.json
-        # with:
-        #   coverageCommand: bundle exec rake spec
-        #   coverageLocations: ${{github.workspace}}/coverage/lcov/*.lcov:lcov

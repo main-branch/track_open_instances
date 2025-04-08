@@ -19,7 +19,7 @@ end
 # SimpleCov configuration
 #
 require 'simplecov'
-require 'simplecov-lcov'
+require 'simplecov-json'
 require 'simplecov-rspec'
 
 def ci_build? = ENV.fetch('GITHUB_ACTIONS', 'false') == 'true'
@@ -27,7 +27,7 @@ def ci_build? = ENV.fetch('GITHUB_ACTIONS', 'false') == 'true'
 if ci_build?
   SimpleCov.formatters = [
     SimpleCov::Formatter::HTMLFormatter,
-    SimpleCov::Formatter::LcovFormatter
+    SimpleCov::Formatter::JSONFormatter
   ]
 end
 
