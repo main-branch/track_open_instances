@@ -136,11 +136,11 @@ effectively.
 
 To ensure compliance, this project includes:
 
-* A git commit-msg hook that validates your commit messages before they are accepted.
+- A git commit-msg hook that validates your commit messages before they are accepted.
 
   To activate the hook, you must have node installed and run `npm install`.
 
-* A GitHub Actions workflow that will enforce the Conventional Commit standard as
+- A GitHub Actions workflow that will enforce the Conventional Commit standard as
   part of the continuous integration pipeline.
 
   Any commit message that does not conform to the Conventional Commits standard will

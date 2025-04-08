@@ -3,7 +3,7 @@
 Thank you for your interest in contributing to the track_open_instances project!
 
 This document gives the guidelines for contributing to this project.
-These guidelines may not fit every situation.  When contributing use your best
+These guidelines may not fit every situation. When contributing use your best
 judgement.
 
 Propose changes to these guidelines with a pull request.
@@ -51,11 +51,11 @@ Once your pull request is ready for review, request a review from at least one o
 [code owners](https://github.com/orgs/main-branch/teams/track_open_instances-codeowners/members).
 
 During the review process, you may need to make additional commits which would
-need to be squashed.  It may also be necessary to rebase to main again if other
+need to be squashed. It may also be necessary to rebase to main again if other
 changes are merged before your PR.
 
 At least one approval is required from a project maintainer before your pull
-request can be merged.  The maintainer is responsible for ensuring that the pull
+request can be merged. The maintainer is responsible for ensuring that the pull
 request meets [the project's coding standards](#coding-standards).
 
 ## Coding standards
@@ -64,39 +64,39 @@ All pull requests must meet these requirements:
 
 ### 1 PR = 1 Commit
 
-* All commits for a PR must be squashed into one commit
-* To avoid an extra merge commit, the PR must be able to be merged as [a fast forward merge](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* The easiest way to ensure a fast forward merge is to rebase your local branch
-    to the track_open_instances main branch
+- All commits for a PR must be squashed into one commit
+- To avoid an extra merge commit, the PR must be able to be merged as [a fast forward merge](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+- The easiest way to ensure a fast forward merge is to rebase your local branch
+  to the track_open_instances main branch
 
 ### Unit tests
 
-* All changes must be accompanied by new or modified RSpec unit tests
-* The entire test suite must pass when `bundle exec rake spec` is run from the
-    project's local working tree
-* The unit test suite must maintain 100% code coverage to pass
+- All changes must be accompanied by new or modified RSpec unit tests
+- The entire test suite must pass when `bundle exec rake spec` is run from the
+  project's local working tree
+- The unit test suite must maintain 100% code coverage to pass
 
 ### Documentation
 
-* New and updated public methods must have [YARD](https://yardoc.org/)
-    documentation added to them
-  * [The YARD Cheatsheet](https://gist.github.com/thelastinuit/5984665e6ab69d3c0a413a03602c45be)
-        is a good reference
-* New and updated public facing features should be documented in the project's
-    [README.md](README.md)
-* All documentation must pass `yardstick` documentation analysis
-* The documentation suite must maintain 100% documentation to pass
+- New and updated public methods must have [YARD](https://yardoc.org/)
+  documentation added to them
+  - [The YARD Cheatsheet](https://gist.github.com/thelastinuit/5984665e6ab69d3c0a413a03602c45be)
+    is a good reference
+- New and updated public facing features should be documented in the project's
+  [README.md](README.md)
+- All documentation must pass `yardstick` documentation analysis
+- The documentation suite must maintain 100% documentation to pass
 
 ### Continuous Integration
 
-* All tests must pass in the project's [Travis CI](https://travis-ci.org/main-branch/track_open_instances)
-    build before the pull request will be merged.
-* You can simulate what happens in the Travis CI build by running `bundle exec rake` in
-    the projects root directory.
+- All tests must pass in the project's [Travis CI](https://travis-ci.org/main-branch/track_open_instances)
+  build before the pull request will be merged.
+- You can simulate what happens in the Travis CI build by running `bundle exec rake` in
+  the projects root directory.
 
 ### Other Design Guidelines
 
-* Use keyword args with defaults instead of an opts hash
+- Use keyword args with defaults instead of an opts hash
 
 ## Licensing
 
