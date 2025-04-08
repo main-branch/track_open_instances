@@ -31,6 +31,16 @@ if ci_build?
   ]
 end
 
+# Platform
+def windows? = Gem.win_platform?
+def mac? = RUBY_PLATFORM.include?('darwin')
+def linux? = RUBY_PLATFORM.include?('linux')
+
+# Engine
+def truffleruby? = RUBY_ENGINE == 'truffleruby'
+def jruby? = RUBY_ENGINE == 'jruby'
+def mri? = RUBY_ENGINE == 'ruby'
+
 def pbcopy(arg)
   raise 'pbcopy is only available on macOS' unless mac?
 
