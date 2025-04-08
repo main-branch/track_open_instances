@@ -69,9 +69,10 @@ jobs:
           bundler-cache: true
 
       - name: Report test coverage
-        uses: paambaati/codeclimate-action@v9
-        env:
-          CC_TEST_REPORTER_ID: b86e77bc6980a43dc09314502fe13334e0f663770b840628ca0716e6dcdeeb5d
+        uses: qltysh/qlty-action/coverage@main
         with:
-          coverageCommand: bundle exec rake spec
-          coverageLocations: ${{github.workspace}}/coverage/lcov/*.lcov:lcov
+          coverage-token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
+          files: coverage/.resultset.json
+        # with:
+        #   coverageCommand: bundle exec rake spec
+        #   coverageLocations: ${{github.workspace}}/coverage/lcov/*.lcov:lcov
