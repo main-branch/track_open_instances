@@ -1,0 +1,77 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+env:
+  # SimpleCov suggests setting the JRuby --debug flag to ensure that coverage
+  # results from JRuby are complete.
+  JRUBY_OPTS: --debug
+  GIT_AUTHOR_NAME: Git Author
+  GIT_AUTHOR_EMAIL: git_author@example.com
+  GIT_COMMITTER_NAME: Git Committer
+  GIT_COMMITTER_EMAIL: git_committer@example.com
+
+# Supported platforms / Ruby versions:
+#  - Ubuntu: MRI (3.1, 3.2, 3.3, 3.4), TruffleRuby (24), JRuby (9.4)
+#  - Windows: MRI (3.1)
+
+jobs:
+  build:
+    name: Ruby ${{ matrix.ruby }} on ${{ matrix.operating-system }}
+
+    runs-on: ${{ matrix.operating-system }}
+    continue-on-error: true
+
+    env:
+      FAIL_ON_LOW_COVERAGE: ${{ matrix.fail_on_low_coverage }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: ["3.1", "3.2", "3.3", "3.4"]
+        operating-system: [ubuntu-latest]
+        fail_on_low_coverage: [true]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+
+      - name: Run rake
+        run: bundle exec rake
+
+  coverage:
+    name: Report test coverage to CodeClimate
+
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+          bundler-cache: true
+
+      - name: Report test coverage
+        uses: paambaati/codeclimate-action@v9
+        env:
+          CC_TEST_REPORTER_ID: b86e77bc6980a43dc09314502fe13334e0f663770b840628ca0716e6dcdeeb5d
+        with:
+          coverageCommand: bundle exec rake spec
+          coverageLocations: ${{github.workspace}}/coverage/lcov/*.lcov:lcov
