@@ -77,8 +77,8 @@ mode = "comment"
 [[plugin]]
 name = "prettier"
 
-[[plugin]]
-name = "radarlint-ruby"
+# [[plugin]]
+# name = "radarlint-ruby"
 
 [[plugin]]
 name = "ripgrep"
