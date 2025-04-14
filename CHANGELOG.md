@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.0.0 (2025-04-14)
+
+
+### Bug Fixes
+
+* Fix several documentation and report errors ([fd17199](https://github.com/main-branch/track_open_instances/commit/fd171997871796df746c8e1312a4fdb07cb363d5))
+
 ## v0.1.0 (2025-04-08)
 
 [Full Changelog](https://github.com/main-branch/track_open_instances/compare/f0fb459..v0.1.0)
