@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.2](https://github.com/main-branch/track_open_instances/compare/v0.1.1...v0.1.2) (2025-04-14)
+
+
+### Bug Fixes
+
+* Make small change to test release ([8304c90](https://github.com/main-branch/track_open_instances/commit/8304c905883c760e6419210be300b637f01e054d))
+
 ## [0.1.1](https://github.com/main-branch/track_open_instances/compare/v0.1.0...v0.1.1) (2025-04-14)
 
 ### Bug Fixes
