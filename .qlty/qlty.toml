@@ -74,8 +74,8 @@ name = "markdownlint"
 version = "0.41.0"
 mode = "comment"
 
-[[plugin]]
-name = "prettier"
+# [[plugin]]
+# name = "prettier"
 
 # [[plugin]]
 # name = "radarlint-ruby"
