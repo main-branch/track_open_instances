@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.4](https://github.com/main-branch/track_open_instances/compare/v0.1.3...v0.1.4) (2025-04-14)
+
+
+### Bug Fixes
+
+* Release workflow should checkout project ([869a7e0](https://github.com/main-branch/track_open_instances/commit/869a7e011438b57bcb810680ecdf0eb5beec193b))
+
 ## [0.1.3](https://github.com/main-branch/track_open_instances/compare/v0.1.2...v0.1.3) (2025-04-14)
 
 
