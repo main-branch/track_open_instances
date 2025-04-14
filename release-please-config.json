@@ -4,6 +4,7 @@
     ".": {
       "changelog-path": "CHANGELOG.md",
       "release-type": "ruby",
+      "version-file": "lib/track_open_instances/version.rb",
       "bump-minor-pre-major": true,
       "bump-patch-for-minor-pre-major": true,
       "draft": false,
