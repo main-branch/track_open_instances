@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.1.3](https://github.com/main-branch/track_open_instances/compare/v0.1.2...v0.1.3) (2025-04-14)
+
+
+### Bug Fixes
+
+* Automatically push the new gem release to rubygems.org ([d133153](https://github.com/main-branch/track_open_instances/commit/d13315396f590fefeb07cc4b71a13c9e9709842b))
+* Remove the qlty.sh integration ([4c4492b](https://github.com/main-branch/track_open_instances/commit/4c4492bb19d1f39fa96ec30ad0af12d103067e92))
+
 ## [0.1.2](https://github.com/main-branch/track_open_instances/compare/v0.1.1...v0.1.2) (2025-04-14)
 
 
