@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.1.5](https://github.com/main-branch/track_open_instances/compare/v0.1.4...v0.1.5) (2025-04-14)
+
+
+### Bug Fixes
+
+* Checkout project before the release-please step in release workflow ([80d9a35](https://github.com/main-branch/track_open_instances/commit/80d9a35ed155f3ba7e14a585e54d9ec34d2722e2))
+* Specify the version file ([be826cf](https://github.com/main-branch/track_open_instances/commit/be826cfe9a8aa526cdaa3f1ecb5912641f3db38c))
+
 ## [0.1.4](https://github.com/main-branch/track_open_instances/compare/v0.1.3...v0.1.4) (2025-04-14)
 
 
