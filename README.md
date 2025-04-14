@@ -22,7 +22,7 @@ to aid debugging.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's or gem's Gemfile:
 
 ```Ruby
 gem 'track_open_instances'
