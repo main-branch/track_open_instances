@@ -74,9 +74,3 @@ jobs:
 
       - name: Run test suite
         run: bundle exec rake spec
-
-      - name: Report test coverage
-        uses: qltysh/qlty-action/coverage@main
-        with:
-          coverage-token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
-          files: coverage/.resultset.json

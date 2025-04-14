@@ -4,8 +4,6 @@
 [![Build Status](https://github.com/main-branch/track_open_instances/actions/workflows/continuous_integration.yml/badge.svg)](https://github.com/main-branch/track_open_instances/actions/workflows/continuous_integration.yml)
 [![Documentation](https://img.shields.io/badge/Documentation-Latest-green)](https://rubydoc.info/gems/track_open_instances/)
 [![Change Log](https://img.shields.io/badge/CHANGELOG-Latest-green)](https://rubydoc.info/gems/track_open_instances/file/CHANGELOG.md)
-[![Maintainability](https://qlty.sh/badges/52f7402e-ab92-4f8f-9f62-d879ca628adb/maintainability.svg)](https://qlty.sh/gh/main-branch/projects/track_open_instances)
-[![Code Coverage](https://qlty.sh/badges/52f7402e-ab92-4f8f-9f62-d879ca628adb/test_coverage.svg)](https://qlty.sh/gh/main-branch/projects/track_open_instances)
 [![Slack](https://img.shields.io/badge/slack-main--branch/track__open__instances-yellow.svg?logo=slack)](https://main-branch.slack.com/archives/C01CHR7TMM2)
 
 `TrackOpenInstances` is a Ruby mixin designed to help manage resources that require
