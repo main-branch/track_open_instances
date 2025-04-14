@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.1](https://github.com/main-branch/track_open_instances/compare/v0.1.0...v0.1.1) (2025-04-14)
+
+### Bug Fixes
+
+- Fix several documentation and report errors ([fd17199](https://github.com/main-branch/track_open_instances/commit/fd171997871796df746c8e1312a4fdb07cb363d5))
+- Start autoreleases at 0.1.0 ([5a2fad7](https://github.com/main-branch/track_open_instances/commit/5a2fad7a9cb029a5dbfb9785f979fc07bf7f127b))
+
 ## v0.1.0 (2025-04-08)
 
 [Full Changelog](https://github.com/main-branch/track_open_instances/compare/f0fb459..v0.1.0)
