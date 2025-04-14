@@ -129,7 +129,7 @@ RSpec.describe TrackOpenInstances do
 
         it 'should return a report string' do
           expect(subject).to be_a(String)
-          expect(subject).to start_with("There is 1 open Class instance:\n")
+          expect(subject).to start_with("There is 1 open anonymous class instance:\n")
           expect(subject).to include("- object_id=#{instance.object_id}\n")
         end
       end
@@ -147,7 +147,7 @@ RSpec.describe TrackOpenInstances do
 
         it 'should return a report string' do
           # expect(subject).to be_a(String)
-          expect(subject).to start_with("There are 3 open Class instances:\n")
+          expect(subject).to start_with("There are 3 open anonymous class instances:\n")
           expect(subject).to include("- object_id=#{instance1.object_id}\n")
           expect(subject).to include("- object_id=#{instance2.object_id}\n")
           expect(subject).to include("- object_id=#{instance3.object_id}\n")
@@ -169,7 +169,7 @@ RSpec.describe TrackOpenInstances do
         let(:instance) { test_class.new }
 
         it 'should raise an error' do
-          expect { subject }.to raise_error(RuntimeError, /There is 1 open Class instance/)
+          expect { subject }.to raise_error(RuntimeError, /There is 1 open anonymous class instance/)
         end
       end
     end
