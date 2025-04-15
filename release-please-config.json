@@ -2,14 +2,13 @@
   "bootstrap-sha": "c0076bab53d3eae31f3798217e281e3d51a292a3",
   "packages": {
     ".": {
-      "changelog-path": "CHANGELOG.md",
       "release-type": "ruby",
+      "changelog-path": "CHANGELOG.md",
       "version-file": "lib/track_open_instances/version.rb",
       "bump-minor-pre-major": true,
       "bump-patch-for-minor-pre-major": true,
       "draft": false,
-      "prerelease": false,
-      "include-component-in-tag": false
+      "prerelease": false
     }
   },
   "plugins": [
