@@ -20,7 +20,7 @@ require_relative 'track_open_instances/version'
 #       # Simulate opening the file
 #       puts "Opening file: #{path}"
 #       # Register the instance for tracking
-#       self.class.add_instance(self)
+#       self.class.add_open_instance(self)
 #     end
 #
 #     # Implement the close logic specific to the resource
@@ -28,20 +28,20 @@ require_relative 'track_open_instances/version'
 #       # Simulate closing the file
 #       puts "Closing file: #{path}"
 #       # Remove the instance from tracking
-#       self.class.remove_instance(self)
+#       self.class.remove_open_instance(self)
 #     end
 #   end
 #
 #   file1 = ManagedFile.new('/tmp/file1.txt')
 #   file2 = ManagedFile.new('/tmp/file2.txt')
 #
-#   puts ManagedFile.unclosed_instances.count #=> 2
-#   puts ManagedFile.unclosed_instances.inspect #=> [#<ManagedFile:...>, #<ManagedFile:...>]
+#   puts ManagedFile.open_instances.count #=> 2
+#   puts ManagedFile.open_instances.keys.inspect #=> [#<ManagedFile:...>, #<ManagedFile:...>]
 #
 #   file1.close
 #
-#   puts ManagedFile.unclosed_instances.count #=> 1
-#   puts ManagedFile.unclosed_instances.inspect #=> [#<ManagedFile:...>]
+#   puts ManagedFile.open_instances.count #=> 1
+#   puts ManagedFile.open_instances.keys.inspect #=> [#<ManagedFile:...>]
 #
 #   # In a test suite's teardown, you might use:
 #   # ManagedFile.assert_no_open_instances # This would raise if file2 wasn't closed
@@ -65,7 +65,8 @@ module TrackOpenInstances
     # Initializes a new OpenInstance
     #
     # @param instance [Object] The tracked instance
-    # @param creation_stack [Array<String>] The call stack at the time of instance creation
+    # @param creation_stack [Array<Thread::Backtrace::Location>] The call stack at
+    #   the time of instance creation
     #
     # @return [void]
     #
@@ -91,11 +92,11 @@ module TrackOpenInstances
     base.extend(ClassMethods)
     # @!attribute [rw] open_instances
     #   Internal storage for all tracked instances
-    #   @return [Hash{Integer => OpenInstance}] The list of currently tracked instances
+    #   @return [Hash{Object => OpenInstance}] The list of currently tracked instances
     base.instance_variable_set(:@open_instances, {}.compare_by_identity)
     # @!visibility private
     # @!attribute [r] open_instances_mutex
-    #   Mutex to ensure thread-safe access to the open_instances list
+    #   Mutex to ensure thread-safe access to the open_instances hash
     base.instance_variable_set(:@open_instances_mutex, Thread::Mutex.new)
   end
 
@@ -106,16 +107,16 @@ module TrackOpenInstances
     # Direct access to the internal list of tracked instances
     #
     # Note: This returns all instances ever tracked unless explicitly removed.
-    # Use `unclosed_instances` for checking leaks. Direct use is uncommon.
+    # Use `open_instances` for checking leaks. Direct use is uncommon.
     #
     # @example
     #   # Assuming MyResource includes TrackOpenInstances
     #   res1 = MyResource.new
     #   res2 = MyResource.new
     #   res1.close
-    #   MyResource.open_instances #=> [#<MyResource... object_id=res2>] (after res1 removed)
+    #   MyResource.open_instances.keys #=> [#<MyResource... object_id=res2>] (after res1 removed)
     #
-    # @return [Array<Object>] The raw list of currently tracked instances
+    # @return [Hash{Object => OpenInstance}] The raw list of currently tracked instances
     #
     # @api private
     def open_instances
@@ -135,7 +136,7 @@ module TrackOpenInstances
     # @api private
     def add_open_instance(instance)
       @open_instances_mutex.synchronize do
-        @open_instances[instance] = OpenInstance.new(instance, caller(3..))
+        @open_instances[instance] = OpenInstance.new(instance, caller_locations(3))
       end
     end
 
@@ -159,7 +160,7 @@ module TrackOpenInstances
     # @example
     #   res1 = MyResource.new
     #   res2 = MyResource.new
-    #   MyResource.open_instance_count #=> 1
+    #   MyResource.open_instance_count #=> 2
     #
     # @return [Integer]
     #
@@ -206,9 +207,10 @@ module TrackOpenInstances
     #
     def open_instances_report_header
       count = @open_instances.count
+      class_name = name || 'anonymous class'
 
       "There #{count == 1 ? 'is' : 'are'} #{count} " \
-        "open #{self.class} instance#{count == 1 ? '' : 's'}:\n"
+        "open #{class_name} instance#{count == 1 ? '' : 's'}:\n"
     end
 
     # The body of the report detailing each open instance
@@ -222,21 +224,24 @@ module TrackOpenInstances
         @open_instances.each do |instance, open_instance|
           body << " - object_id=#{instance.object_id}\n"
           body << "   Call stack when created:\n"
-          open_instance.creation_stack.reverse.each { |line| body << "     #{line}\n" }
+          open_instance.creation_stack.each do |location|
+            body << "     #{location.path}:#{location.lineno}:in `#{location.label}'\n"
+          end
         end
       end
     end
 
     # Asserts that no instances of the class remain unclosed
     #
-    # Raises a ProcessExecuter::Error with a detailed report if any instances
-    # are found to be unclosed. Commonly used in test suite teardown blocks.
+    # Commonly used in test suite teardown blocks to enure that all resources were
+    # released.
     #
     # @example
     #   # In RSpec teardown (e.g., after(:each))
     #   MyResource.assert_no_open_instances
     #
-    # @raise [RuntimeError] If any instances are found unclosed
+    # @raise [RuntimeError] If any instances are found unclosed with a report of
+    # unclosed instances
     #
     # @return [void]
     #
