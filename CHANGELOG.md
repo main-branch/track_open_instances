@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.8](https://github.com/main-branch/track_open_instances/compare/v0.1.7...v0.1.8) (2025-04-15)
+
+
+### Bug Fixes
+
+* Remove component name from release version tag ([5991728](https://github.com/main-branch/track_open_instances/commit/59917284241eaa173fd4f83a38710cb50a23c750))
+
 ## [0.1.7](https://github.com/main-branch/track_open_instances/compare/track_open_instances-v0.1.6...track_open_instances/v0.1.7) (2025-04-15)
 
 
