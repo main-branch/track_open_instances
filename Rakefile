@@ -22,7 +22,7 @@ require 'bundler/gem_tasks'
 
 Rake::Task['release'].clear
 desc 'Customized release task to avoid creating a new tag'
-task release: 'release:rubygems_push'
+task release: 'release:rubygem_push'
 
 # RSpec
 
