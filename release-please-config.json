@@ -3,6 +3,7 @@
   "packages": {
     ".": {
       "release-type": "ruby",
+      "package-name": "track_open_instances",
       "changelog-path": "CHANGELOG.md",
       "version-file": "lib/track_open_instances/version.rb",
       "bump-minor-pre-major": true,
