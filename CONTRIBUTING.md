@@ -35,6 +35,64 @@ There is three step process for code or documentation changes:
 
 Make your changes in a fork of the track_open_instances repository.
 
+#### Conventional commits
+
+All commits to this repository MUST follow [the conventional commits
+specification](https://www.conventionalcommits.org/en/v1.0.0/#specification). This is
+so that release versions can automatically be generated based on the commit messages.
+The Continuous Integration workflow will fail if a commit message is not in this
+format.
+
+The format for a conventional commit message is:
+
+```Text
+<commit-type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+Where commit type is one of:
+
+* `feat:` A new feature for the end-user.
+* `fix:` A bug fix for the end-user.
+* `build:` Changes that affect the build system or external dependencies (e.g.,
+  changes to npm, webpack, Docker configurations).
+* `chore:` Routine tasks, maintenance, or changes that don't modify source code or
+  test files (e.g., updating dependencies, configuring linters).
+* `docs:` Changes to documentation only (e.g., updating README, guides, or extensive
+  code comments).
+* `style:` Changes that do not affect the meaning or logic of the code (e.g.,
+  white-space, formatting, fixing linter warnings, missing semi-colons).
+* `refactor:` A code change that neither fixes a bug nor adds a feature, but improves
+  the code structure, readability, or organization without changing its external
+  behavior.
+* `perf:` A code change that improves performance.
+* `test:` Adding missing tests or correcting existing tests; changes to the test
+  environment or configuration.
+
+Backward incompatible changes (aka breaking changes) should append a `!` after the
+commit type or add the footer `BREAKING CHANGE:` as shown in the following examples:
+
+```Text
+fix!: change the interface to match the requirements
+```
+
+```Text
+fix: change the interface to match the requirements
+
+BREAKING CHANGE: users will need to add additional, non-default option
+```
+
+These commit messages will have the following impact on the release version number:
+
+* Breaking changes (of any commit type) will bump the major version component
+* `feat:` commits will bump the minor version component
+* `fix:` commits will bump the patch version component
+
+Any other commit types (that are not breaking changes) will not trigger a release.
+
 ### Create a pull request
 
 See [this article](https://help.github.com/articles/about-pull-requests/) if you
@@ -62,12 +120,38 @@ request meets [the project's coding standards](#coding-standards).
 
 All pull requests must meet these requirements:
 
-### 1 PR = 1 Commit
+### Rebase Merge Strategy
 
-- All commits for a PR must be squashed into one commit
-- To avoid an extra merge commit, the PR must be able to be merged as [a fast forward merge](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-- The easiest way to ensure a fast forward merge is to rebase your local branch
-  to the track_open_instances main branch
+Our project requires a linear commit history, which is achieved by using a
+rebase strategy to enable fast-forward merges for all Pull Requests (PRs).
+
+* **Goal:** To integrate PRs without creating extra merge commits, ensuring a clean
+  and linear project history. This requires the PR branch to be eligible for a
+  [fast-forward
+  merge](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging).
+* **Commit History:** Before merging, clean up your PR's commit history. Squash
+  related changes into logical commits using interactive rebase (`git rebase -i`).
+  Aim for a minimal number of meaningful commits that represent distinct steps or
+  features.
+* **Enable Fast-Forward:** To ensure a fast-forward merge is possible, you must
+  rebase your feature branch onto the latest version of the target branch (e.g.,
+  `main`) *before* the PR is merged.
+  * Example commands (assuming your remote is `origin` and the target branch is
+    `main`):
+
+    ```bash
+    # Fetch the latest changes from the remote
+    git fetch origin
+
+    # Rebase your current branch onto the latest main branch
+    git rebase origin/main
+    ```
+
+  * You may need to resolve conflicts during the rebase process. After successfully
+    rebasing, you'll likely need to force-push your branch (`git push
+    --force-with-lease`).
+
+  * You may need to rebase again if other PRs are merged to main.
 
 ### Unit tests
 
