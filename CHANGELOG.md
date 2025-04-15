@@ -1,5 +1,21 @@
 # Change Log
 
+## [0.1.7](https://github.com/main-branch/track_open_instances/compare/track_open_instances-v0.1.6...track_open_instances/v0.1.7) (2025-04-15)
+
+
+### Bug Fixes
+
+* Add package-name to release-please configuration ([83d0198](https://github.com/main-branch/track_open_instances/commit/83d0198bfab34e26b641ca7e27af08b68e07c396))
+* Automatically push the new gem release to rubygems.org ([d133153](https://github.com/main-branch/track_open_instances/commit/d13315396f590fefeb07cc4b71a13c9e9709842b))
+* Checkout project before the release-please step in release workflow ([80d9a35](https://github.com/main-branch/track_open_instances/commit/80d9a35ed155f3ba7e14a585e54d9ec34d2722e2))
+* Fix several documentation and report errors ([fd17199](https://github.com/main-branch/track_open_instances/commit/fd171997871796df746c8e1312a4fdb07cb363d5))
+* Make release-please use a different tag than release-gem ([a7d42dc](https://github.com/main-branch/track_open_instances/commit/a7d42dcb132bd40ceb3830a6a02a09694022844a))
+* Make small change to test release ([8304c90](https://github.com/main-branch/track_open_instances/commit/8304c905883c760e6419210be300b637f01e054d))
+* Release workflow should checkout project ([869a7e0](https://github.com/main-branch/track_open_instances/commit/869a7e011438b57bcb810680ecdf0eb5beec193b))
+* Remove the qlty.sh integration ([4c4492b](https://github.com/main-branch/track_open_instances/commit/4c4492bb19d1f39fa96ec30ad0af12d103067e92))
+* Specify the version file ([be826cf](https://github.com/main-branch/track_open_instances/commit/be826cfe9a8aa526cdaa3f1ecb5912641f3db38c))
+* Start autoreleases at 0.1.0 ([5a2fad7](https://github.com/main-branch/track_open_instances/commit/5a2fad7a9cb029a5dbfb9785f979fc07bf7f127b))
+
 ## [0.1.6](https://github.com/main-branch/track_open_instances/compare/v0.1.5...v0.1.6) (2025-04-15)
 
 
