@@ -28,10 +28,10 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout Project
+      - name: Checkout project
         uses: actions/checkout@v4
 
-      - name: Create Release
+      - name: Create release
         uses: googleapis/release-please-action@v4
         id: release
         with:
@@ -39,7 +39,7 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-      - name: Setup Ruby
+      - name: Setup ruby
         uses: ruby/setup-ruby@v1
         if: ${{ steps.release.outputs.release_created }}
         with:
