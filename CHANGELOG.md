@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.6](https://github.com/main-branch/track_open_instances/compare/v0.1.5...v0.1.6) (2025-04-15)
+
+
+### Bug Fixes
+
+* Make release-please use a different tag than release-gem ([a7d42dc](https://github.com/main-branch/track_open_instances/commit/a7d42dcb132bd40ceb3830a6a02a09694022844a))
+
 ## [0.1.5](https://github.com/main-branch/track_open_instances/compare/v0.1.4...v0.1.5) (2025-04-14)
 
 
