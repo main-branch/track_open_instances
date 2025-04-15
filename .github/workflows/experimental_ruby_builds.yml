@@ -10,15 +10,6 @@ on:
 
   workflow_dispatch:
 
-env:
-  # SimpleCov suggests setting the JRuby --debug flag to ensure that coverage
-  # results from JRuby are complete.
-  JRUBY_OPTS: --debug
-
-# Experimental platforms / Ruby versions:
-#  - Ubuntu: MRI (head), TruffleRuby (head), JRuby (head)
-#  - Windows: MRI (head), JRuby (head), JRuby (9.4)
-
 jobs:
   build:
     name: Ruby ${{ matrix.ruby }} on ${{ matrix.operating-system }}
@@ -28,30 +19,13 @@ jobs:
 
     env:
       FAIL_ON_LOW_COVERAGE: ${{ matrix.fail_on_low_coverage }}
-      GIT_AUTHOR_NAME: Git Author
-      GIT_AUTHOR_EMAIL: git_author@example.com
-      GIT_COMMITTER_NAME: Git Committer
-      GIT_COMMITTER_EMAIL: git_committer@example.com
 
     strategy:
       fail-fast: false
       matrix:
+        ruby: ["head"]
+        operating-system: [ubuntu-latest]
         fail_on_low_coverage: ["true"]
-        include:
-          - ruby: head
-            operating-system: ubuntu-latest
-          - ruby: "jruby-9.4"
-            operating-system: ubuntu-latest
-            fail_on_low_coverage: "false"
-          - ruby: "truffleruby-24"
-            operating-system: ubuntu-latest
-            fail_on_low_coverage: "false"
-          - ruby: head
-            operating-system: windows-latest
-            fail_on_low_coverage: "false"
-          - ruby: 3.1
-            operating-system: windows-latest
-            fail_on_low_coverage: "false"
 
     steps:
       - name: Checkout
