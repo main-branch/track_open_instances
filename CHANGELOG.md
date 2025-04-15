@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.1.12](https://github.com/main-branch/track_open_instances/compare/v0.1.11...v0.1.12) (2025-04-15)
+
+
+### Bug Fixes
+
+* Change the release PR title to be more user friendly ([0fb9ce2](https://github.com/main-branch/track_open_instances/commit/0fb9ce2cbac10a4efdf44d47bd0cf316d99fc410))
+* Remove pull request title pattern from release configuration ([2460dde](https://github.com/main-branch/track_open_instances/commit/2460ddeabd975b42925daf0572220ef6cbe208fd))
+
 ## [0.1.11](https://github.com/main-branch/track_open_instances/compare/v0.1.10...v0.1.11) (2025-04-15)
 
 
