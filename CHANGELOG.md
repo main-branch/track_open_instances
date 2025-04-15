@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.9](https://github.com/main-branch/track_open_instances/compare/v0.1.8...v0.1.9) (2025-04-15)
+
+
+### Bug Fixes
+
+* Amend release task so it does not create a new tag ([7bedd17](https://github.com/main-branch/track_open_instances/commit/7bedd176c140f6b3979f39388f0ca803c32f9282))
+
 ## [0.1.8](https://github.com/main-branch/track_open_instances/compare/v0.1.7...v0.1.8) (2025-04-15)
 
 
