@@ -10,8 +10,7 @@
       "bump-patch-for-minor-pre-major": true,
       "draft": false,
       "prerelease": false,
-      "include-component-in-tag": false,
-      "pull-request-title-pattern": "Release ${branch}"
+      "include-component-in-tag": false
     }
   },
   "plugins": [
