@@ -2,5 +2,5 @@
 
 module TrackOpenInstances
   # The last released version of this gem
-  VERSION = '0.1.13'
+  VERSION = '0.1.14'
 end
