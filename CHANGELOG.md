@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.14](https://github.com/main-branch/track_open_instances/compare/v0.1.13...v0.1.14) (2025-04-16)
+
+
+### Bug Fixes
+
+* Do not trigger CI workflow for release PRs ([635d8af](https://github.com/main-branch/track_open_instances/commit/635d8af71bf305bac312f2db1b99c0eb3974a945))
+
 ## [0.1.13](https://github.com/main-branch/track_open_instances/compare/v0.1.12...v0.1.13) (2025-04-16)
 
 
