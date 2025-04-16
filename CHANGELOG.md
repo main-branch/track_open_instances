@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.1.13](https://github.com/main-branch/track_open_instances/compare/v0.1.12...v0.1.13) (2025-04-16)
+
+
+### Bug Fixes
+
+* Do not trigger build workflows when merging to main ([1799b54](https://github.com/main-branch/track_open_instances/commit/1799b54bc3d91dfef45b2131feb350b7dee08879))
+
 ## [0.1.12](https://github.com/main-branch/track_open_instances/compare/v0.1.11...v0.1.12) (2025-04-15)
 
 
