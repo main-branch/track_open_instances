@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.1.15](https://github.com/main-branch/track_open_instances/compare/v0.1.14...v0.1.15) (2025-04-17)
+
+
+### Other Changes
+
+* Configure release-please to includes all changes in the CHANGELOG ([8db0fac](https://github.com/main-branch/track_open_instances/commit/8db0facc3cfc14833dda616d14b03695c3fdf5f0))
+* Do not enforce conventional commits for release PR ([64f2749](https://github.com/main-branch/track_open_instances/commit/64f274979de50dfc4b4e0b88e78d147a12c5061f))
+
 ## [0.1.14](https://github.com/main-branch/track_open_instances/compare/v0.1.13...v0.1.14) (2025-04-16)
 
 
