@@ -190,7 +190,7 @@ module TrackOpenInstances
     # @api public
     def open_instances_report
       @open_instances_mutex.synchronize do
-        return nil if @open_instances.count.zero?
+        return nil if @open_instances.none?
 
         String.new.tap do |report|
           report << open_instances_report_header
@@ -210,7 +210,7 @@ module TrackOpenInstances
       class_name = name || 'anonymous class'
 
       "There #{count == 1 ? 'is' : 'are'} #{count} " \
-        "open #{class_name} instance#{count == 1 ? '' : 's'}:\n"
+        "open #{class_name} instance#{'s' unless count == 1}:\n"
     end
 
     # The body of the report detailing each open instance
