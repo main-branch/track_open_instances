@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.1.16](https://github.com/main-branch/track_open_instances/compare/v0.1.15...v0.1.16) (2026-04-24)
+
+
+### Other Changes
+
+* **dependencies:** Update dependencies for all GitHub Actions workflows ([28054b9](https://github.com/main-branch/track_open_instances/commit/28054b909bb182ba4fb501fb533526a0fd456f37))
+* **rubocop:** Fix rubocop offenses from new cops ([b43b688](https://github.com/main-branch/track_open_instances/commit/b43b688de97cec21e0282f4cdd2d2f1fe300ac7f))
+
 ## [0.1.15](https://github.com/main-branch/track_open_instances/compare/v0.1.14...v0.1.15) (2025-04-17)
 
 
